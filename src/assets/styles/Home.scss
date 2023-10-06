@@ -1,0 +1,77 @@
+@mixin sliderImageTitle {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 0.4rem;
+    text-align: left;
+    color: #fff;
+    font-style: italic;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../assets/images/basket_bg.jpg');
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.carousel {
+    position: relative;
+    margin-top: 66px;
+    background-color: #fff;
+    width: 100%;
+    height: 500px !important;
+}
+
+.slider_box {
+    width: 100%;
+    height: 100%;
+}
+
+.slider_box .slider_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.slider_data_box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+    padding: 10px;
+    z-index: 1000;
+    left: 0;
+    bottom: 0;
+}
+
+.slider_title {
+    @include sliderImageTitle;
+}
+
+.slider_price {
+    font-size: 25px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.slider_rating {
+    color: #fff;
+    font-weight: 400;
+}
+
+.rating_star {
+    color: yellow;
+}
+
+.slider_count_text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #f2f2f2;
+}

@@ -1,0 +1,20 @@
+.message_btn {
+    position: fixed;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 5%;
+    right: 10px;
+    z-index: 1000;
+    font-size: 28px;
+    background-color: #4D4DFF;
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    &:hover {
+        opacity: 0.9;
+    } 
+}

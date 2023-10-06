@@ -1,0 +1,13 @@
+
+
+export const DELETE_DATA = 'DELETE_DATA';
+
+export const ADD_DATA = 'ADD_DATA' ;
+
+export const ADD_BASKET_DATA = 'ADD_BASKET_DATA';
+
+export const REMOVE_ITEM_FROM_BASKET = 'REMOVE_ITEM_FROM_BASKET';
+
+export const ADD_SEARCH_DATA = 'SEARCH_DATA';
+
+export const ADD_FAVORITE_DATA = 'ADD_FAVORITE_DATA';

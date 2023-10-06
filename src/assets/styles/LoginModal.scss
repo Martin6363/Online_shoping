@@ -1,0 +1,14 @@
+.link_login {
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    font-family: sans-serif;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    transition: 0.1s ease-in;
+}
+
+.link_login:hover {
+    color: #0b2c40;
+}

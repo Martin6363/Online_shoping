@@ -1,0 +1,11 @@
+.alert-container {
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+} 
+
+.alert_action {
+    position: fixed;
+    right: 0% !important;
+    transform: translateX(100%) !important;
+}

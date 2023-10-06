@@ -1,0 +1,17 @@
+.favorite_wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+}
+
+.favorite_container {
+    width: 95%;
+    min-height: calc(100vh - 100px);
+    margin-top: 60px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
+}
