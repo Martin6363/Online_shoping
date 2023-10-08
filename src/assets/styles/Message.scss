@@ -1,3 +1,58 @@
+.message_wrapper {
+    position: fixed;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    transition: 0.3s;
+}
+
+.message_wrapper .message_container {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    transition: 0.3s;
+    opacity: 0;
+
+    .close_message {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 23px;
+        color: #333;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            color: #000;
+        }
+    }
+}
+
+.message_wrapper .message_container.active {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    min-height: calc(100vh - 200px);
+    border-radius: 16px;
+    background-color: #fff;
+    transition: 0.3s;
+    opacity: 1;
+}
+
 .message_btn {
     position: fixed;
     padding: 12px;

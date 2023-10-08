@@ -7,7 +7,7 @@ import { TailSpin } from  'react-loader-spinner'
 import { BasketStore } from './components/basket_store/BasketStore';
 import { SearchProduct } from './components/searchProduct/searchProduct';
 import { FavoriteProduct } from './pages/favoriteProduct/FavoriteProduct';
-import { Message } from './pages/message/Message';
+import { Message } from './components/message/Message';
 
 function App() {
   return (
