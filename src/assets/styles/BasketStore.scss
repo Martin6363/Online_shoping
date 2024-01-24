@@ -1,19 +1,17 @@
 .basket_wrapper {
     width: 100%;
-    min-height: 100vh;
     margin-top: 66px;
     display: flex;
     align-items: start;
     justify-content: center;
-    background-image: url('../../assets/images/basket_bg.jpg');
-    background-attachment: fixed;
-    background-size: cover;
+    background-color: #f2f2f2;
     padding: 15px;
 }
 
 .basket_container {
     width: 100%;
     max-width: 1400px;
+    margin-top: 12px;
     min-height: calc(100vh - 100px);
     display: flex;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.3);
@@ -46,6 +44,10 @@
     margin-top: 10px;
     padding: 15px 0;
     transition: 0.3s;
+
+    &:last-child {
+        border-bottom: none;
+    }
 
     &:hover {
         background-color: #ececec;
@@ -172,7 +174,7 @@
 
 
 .buy_products_box {
-    min-width: 40%;
+    min-width: 30%;
     max-height: calc(100vh - 100px);
     border-radius: 5px;
     background-color: #f2f2f2;

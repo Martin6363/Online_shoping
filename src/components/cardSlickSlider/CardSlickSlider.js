@@ -32,7 +32,7 @@ export function CardSlickSlider({ categoryId }) {
       <h3>Additional products</h3>
       <Carousel
         swipeable={true}
-        draggable={true}
+        draggable={false}
         showDots={true}
         responsive={responsive}
         ssr={true}
@@ -50,7 +50,7 @@ export function CardSlickSlider({ categoryId }) {
             <div className='category_slider_box' key={product.id}>
                 <Link to={`/product/${encodeURIComponent(product.title)}/${product.id}`} onClick={scrollToTop} style={{textDecoration:"none", color:"black"}}>
                 <div className="slider_slick_img_box">
-                    <img src={product.image} alt={product.title} />
+                    <img src={product.image} alt={product.title}/>
                     <p>{product.title}</p>
                     <b>${product.price}</b>
                 </div>

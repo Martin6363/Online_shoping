@@ -7,13 +7,12 @@ import { AiFillMinusCircle } from "react-icons/ai"
 import { HiMiniPlusCircle } from "react-icons/hi2";
 import { FaCartShopping } from 'react-icons/fa6';
 import { TailSpin } from  'react-loader-spinner';
-import ReactImageMagnify from 'react-image-magnify';
 import { CardSlickSlider } from '../cardSlickSlider/CardSlickSlider';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBasketData } from '../../store/shopList/shop.action';
 import ProductAlert from '../ProductAlert/ProductAlert';
 import ButtonToTop from '../buttonToTop/ButtonToTop';
-
+import MyImageMagnify from './MyImageMagnify';
 
 export function ProductDetail() {
   const [isLoading, setIsLoading] = useState(true);
@@ -108,31 +107,7 @@ export function ProductDetail() {
         <div className="product_detail_data">
           <div className="detail_img_box">
             <div className="image-magnify-container">
-            <ReactImageMagnify
-                {...{
-                  smallImage: {
-                    alt: 'Wristwatch by Ted Baker London',
-                    isFluidWidth: false,
-                    width: 660, 
-                    height: 530, 
-                    src: detail ? detail.image : "",
-                  },
-                  largeImage: {
-                    src: detail ? detail.image : "",
-                    width: 1200,
-                    height: 1500,
-                  },
-                  imageClassName: 'hover_img',
-                  // enlargedImagePosition: 'over',
-                  isHintEnabled: true,
-                  shouldHideHintAfterFirstActivation: false,
-                  shouldUsePositiveSpaceLens: true,
-                  enlargedImageClassName: 'hover_img',
-                  fadeDurationInMs: 250,
-                  hoverDelayInMs: 50,
-                  hoverOffDelayInMs: 50,
-                }}
-              />
+              <MyImageMagnify detail={detail}/>
             </div>
           </div>
           <div className="detail_data_cont">

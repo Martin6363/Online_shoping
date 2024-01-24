@@ -8,15 +8,16 @@ import { Link } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 import ProductList from '../components/product_list/ProductList';
 import ButtonToTop from '../components/buttonToTop/ButtonToTop';
+import ProductCategories from '../components/productCategory/ProductCategory';
 
-export function Home() {
+export function Home({ setLoading }) {
   const [isSSkeletonTheme, setIsSkeletonTheme] = useState(true);
   const [carouselElement, setCarouselElement] = useState([]);
   const dispatch = useDispatch();
   const { shopData } = useSelector((store) => ({
     shopData: store.dataReducer.shopData,
   }));
-
+  const [category, setCategory] = useState([]);
   const memoizedShopData = useMemo(() => shopData, [shopData]);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export function Home() {
         .then((res) => {
           dispatch(addData(res.data));
           setIsSkeletonTheme(false);
+          setLoading(false);
         });
     }
   }, [memoizedShopData, dispatch]);
@@ -35,6 +37,14 @@ export function Home() {
     axios.get("https://fakestoreapi.com/products?limit=5")
     .then((res) => {
       setCarouselElement(res.data)
+    })
+  }, [])
+
+  useEffect(() => {
+    axios.get("https://fakestoreapi.com/products/categories")
+    .then((res) => {
+      setCategory(res.data);
+      console.log(res.data);
     })
   }, [])
 
@@ -86,10 +96,8 @@ export function Home() {
 
       </Carousel>
 
-      <ProductList cards={shopData} loadingCard={isSSkeletonTheme}/>
-      <ProductList cards={shopData} loadingCard={isSSkeletonTheme}/>
-      <ProductList cards={shopData} loadingCard={isSSkeletonTheme}/>
-      <ProductList cards={shopData} loadingCard={isSSkeletonTheme}/>
+      <ProductCategories data={shopData} categories={category} loadingCard={isSSkeletonTheme}/>
+
       <ProductList cards={shopData} loadingCard={isSSkeletonTheme}/>
     </div>
   )

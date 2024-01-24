@@ -1,0 +1,10 @@
+.hovers_img {
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+    .hovers_img{
+      min-width: 100%;
+    }
+}

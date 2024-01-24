@@ -115,9 +115,9 @@ export function BasketStore () {
         </div>
         {
           basketData.length > 0 && (
-            <article className='buy_products_box'>
+            <aside className='buy_products_box'>
               <h2>Buy</h2>
-            </article>
+            </aside>
           )
         }
       </div>

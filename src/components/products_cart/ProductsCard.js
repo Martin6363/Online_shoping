@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addBasketData } from '../../store/shopList/shop.action';
 import { BsCheckAll } from 'react-icons/bs';
 import ProductAlert from '../ProductAlert/ProductAlert';
+import { GrFormView } from 'react-icons/gr';
+
 
 export function ProductsCard ({ product, loadingCard }) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -53,7 +55,7 @@ export function ProductsCard ({ product, loadingCard }) {
   } 
 
   return (
-    <div className='card_wrapper'> 
+    <article className='card_wrapper'> 
       {
         loadingCard
         ?
@@ -76,7 +78,10 @@ export function ProductsCard ({ product, loadingCard }) {
             </button>
             <Link to={`/product/${encodedTitle}/${product.id}`} style={{textDecoration: 'none', color: '#333'}} className='card_link'>
               <div className="card_img_box">
-                <img src={product.image} alt="" />
+                <div className="card_image">
+                  <img src={product.image} alt="" />
+                  <span className='view-card-btn'>View</span>
+                </div>
               </div>
             </Link>
             <div className='card_data'>
@@ -100,6 +105,6 @@ export function ProductsCard ({ product, loadingCard }) {
             <ProductAlert showAlert={showAlert} setShowAlert={() => setShowAlert()} errorAlert={errorAlert} setErrorAlert={() => setErrorAlert()}/>
           </>
       }
-    </div>
+    </article>
   )
 }

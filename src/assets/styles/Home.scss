@@ -10,18 +10,31 @@
 .wrapper {
     width: 100%;
     min-height: 100vh;
-    background-image: url('../../assets/images/basket_bg.jpg');
-    background-size: contain;
-    background-attachment: fixed;
+    background-color: #f2f2f2;
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
 }
 
 .carousel {
-    position: relative;
-    margin-top: 66px;
+    margin-top: 80px;
     background-color: #fff;
     width: 100%;
     height: 500px !important;
+    border-radius: 30px;
+    box-shadow: 0px 0px 11px -1px #000000;
+    animation: toTop 1.2s both;
 }
+
+@keyframes toTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-1000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
 
 .slider_box {
     width: 100%;
