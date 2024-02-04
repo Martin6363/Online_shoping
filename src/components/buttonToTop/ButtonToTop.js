@@ -7,7 +7,7 @@ export default function ButtonToTop() {
     const [showButton, setShowButton] = useState(false);
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 70) {
+        if (window.scrollY > 500) {
           setShowButton(true);
         } else {
           setShowButton(false);

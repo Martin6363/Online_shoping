@@ -44,7 +44,6 @@ export function Home({ setLoading }) {
     axios.get("https://fakestoreapi.com/products/categories")
     .then((res) => {
       setCategory(res.data);
-      console.log(res.data);
     })
   }, [])
 

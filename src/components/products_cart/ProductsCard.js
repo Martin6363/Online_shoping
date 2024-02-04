@@ -85,20 +85,22 @@ export function ProductsCard ({ product, loadingCard }) {
               </div>
             </Link>
             <div className='card_data'>
-                <h5>{product ? handleTitleLimit(product.title, 50) : ""}</h5>
+                <h5 className='name_product'>{product ? handleTitleLimit(product.title, 45) : ""}</h5>
                 <strong>{product ? product.price : ""}$</strong>
                 <div className='card_star_rating'>
                   <span><StarRating starCard={product ? product.rating.rate : ""}/></span>
-                  <button onClick={handleAddCard} className='card_buy_btn'>{
-                  productAlreadyExists ? (
-                    <>
-                      <BsCheckAll /> Added
-                    </>
-                  ) : (
-                    <>
-                      <FaCartShopping /> Add To Cart
-                    </>
-                  )}
+                  <button onClick={handleAddCard} className='card_buy_btn'>
+                    {
+                      productAlreadyExists ? (
+                        <>
+                          <BsCheckAll /> Added
+                        </>
+                      ) : (
+                        <>
+                          <FaCartShopping /> Add Basket
+                        </>
+                      )
+                    }
                   </button>
                 </div>
             </div>

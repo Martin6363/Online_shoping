@@ -98,6 +98,10 @@ export function ProductDetail() {
     }
   }
 
+  window.scrollTo({
+    top: 0,
+  });
+
   return (
     <>
     <div className='product_detail_wrapper'>

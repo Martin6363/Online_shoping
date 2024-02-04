@@ -9,6 +9,7 @@ import { SearchProduct } from './components/searchProduct/searchProduct';
 import { FavoriteProduct } from './pages/favoriteProduct/FavoriteProduct';
 import { Message } from './components/message/Message';
 import { useEffect, useState } from 'react';
+import Footer from './components/store_footer/Footer';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +46,7 @@ function App() {
           </div>}
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

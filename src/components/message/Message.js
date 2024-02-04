@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {BiMessageRounded } from 'react-icons/bi';
 import '../../assets/styles/Message.scss';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -8,6 +8,7 @@ import { FiPaperclip } from "react-icons/fi";
 
 export function Message() {
   const [messageActive, setMessageActive] = useState(false);
+  const chatContentRef = useRef(null);
 
   function handleActiveMessage () {
     setMessageActive(!messageActive);
@@ -17,6 +18,13 @@ export function Message() {
       document.body.style.overflowY = 'hidden';
     }
   }
+
+  useEffect(() => {
+    if (chatContentRef.current) {
+      chatContentRef.current.scrollTop = chatContentRef.current.scrollHeight;
+    }
+  }, [messageActive]);
+
 
   return (
     <>
@@ -33,7 +41,7 @@ export function Message() {
                         <a className="btn-xs btn-secondary" href="#">Let's Chat App</a>
                       </div>
 
-                      <div className="ps-container" id="chat-content" >
+                      <div className="ps-container" id="chat-content" ref={chatContentRef}>
                         <div className="media media-chat">
                           <img className="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="..." />
                           <div className="media-body">

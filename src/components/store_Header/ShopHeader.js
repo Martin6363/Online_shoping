@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { FaCartShopping } from 'react-icons/fa6';
@@ -31,6 +31,7 @@ export function ShopHeader() {
   const { shopData } = useSelector((store) => ({
     shopData: store.dataReducer.shopData,
   }));
+
   const onSubmit = (data) => {
     if (data.search.trim()) {
       handleSearch(data);
@@ -66,10 +67,33 @@ export function ShopHeader() {
     setMenuActive(!menuActive)
   }
 
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
+  // useEffect(() => {
+  //   if (menuActive) {
+  //     window.body.scrollY = 'none';
+  //   }
+  // }, [menuActive])
+
   return (
-    <div className="header_wrapper">
+    <div className={`header_wrapper ${isVisible ? 'visible' : 'hidden'}`}>
       <header className='header'>
-        <button className='menu_left_btn' onClick={handleMenuActive}><HiMenuAlt1 fontSize={35}/></button>
+        <button className='menu_left_btn' onClick={handleMenuActive}>{menuActive ? <IoClose className='close-menu-icon' fontSize={35}/> : <HiMenuAlt1 className='active-menu-icon' fontSize={35}/>}</button>
         <nav className='navigation'>
           <div className="logo_img">
             <Link onClick={scrollTo} to={'/'} style={{textDecoration: 'none'}}><img src={Logo} alt="" className='logoImg'/></Link>
@@ -78,7 +102,7 @@ export function ShopHeader() {
             <form onSubmit={handleSubmit(onSubmit)} className="search_input_box">
               <input 
                 type="text" 
-                autocomplete="off"
+                autoComplete="off"
                 className='search'  
                 placeholder='Search'
                 {...register('search', { required: true,
@@ -101,7 +125,6 @@ export function ShopHeader() {
             <button onClick={handleEmptyValue} className='remove_input_value_btn'><AiOutlineClose/></button>
           </div>
           <ul>
-            <li title='Create product' onClick={() => setIsFavorite(false)}><Link to={'/create/product'} className='link_header'><IoCreateSharp/></Link></li>
             <li title='Favorite products' onClick={favoriteLink}>
               <span style={{cursor: 'pointer'}} className='link_header'>
                 {
@@ -123,7 +146,7 @@ export function ShopHeader() {
       </header>
       <div className={`menu_container ${menuActive && 'menu_container_active'}`}>
         <div className="header_menu_left">
-          <button onClick={handleMenuActive} className='close_menu_btn'><IoClose/></button>
+          <h6>Navbar Content</h6>
         </div>
       </div>
     </div>

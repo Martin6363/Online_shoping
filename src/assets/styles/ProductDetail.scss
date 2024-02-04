@@ -5,10 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../../assets/images/productDetail_bg.png');
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+    background-image: linear-gradient(to right, #e9e4f0, #d3cce3); 
 }
 
 .detail_container {
@@ -201,4 +198,8 @@
     .detail_data_cont {
       width: 50%;
     }
+  }
+
+  .slider_container {
+    margin-bottom: 30px;
   }

@@ -9,8 +9,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 900;
     transition: 0.3s;
 }
 
@@ -19,6 +19,7 @@
     min-height: calc(100vh - 200px);
     border-radius: 16px;
     background-color: #fff;
+    z-index: 960;
     transition: 0.3s;
     animation: scale 0.2s both;
 
@@ -92,7 +93,7 @@
     
     &:hover .btn_effect {
         visibility: visible;
-        animation: clickSkin 0.5s both;
+        animation: clickSkin 0.4s both;
     }
 }
 
@@ -219,9 +220,22 @@ h4.card-title {
 
 .ps-container {
     position: relative;
-    overflow-y: scroll !important;
+    overflow-y: auto !important;
     scroll-behavior: smooth;
     height: 400px;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+       
+    &::-webkit-scrollbar-thumb {
+        background: #9d9d9d; 
+        border-radius: 10px;
+      }
 }
 
 .media-chat {
